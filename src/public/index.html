@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skywave</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- local css -->
+  <link rel="stylesheet" href="./asset/css/index.css"> 
+  <!-- icon -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3 sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">
+        <img src="./asset/images/logo.jpg" alt="Skywave" class="logo" style="width: 40px;"> Skywave
+      </a>
+    
+      <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- Align navbar links to the right -->
+        <ul class="navbar-nav text-center ms-auto"> 
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about-us">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#creative-Us">Creative Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#feature">Feature</a></li>
+          <li class="nav-item"><a class="nav-link" href="#business">Business</a></li>
+          <li class="nav-item"><a class="nav-link" href="#teams">Team</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+        
+        <div class="d-flex justify-content-center gap-2 p-3">
+          <a class="btn btn-danger rounded-pill my-2" href="./log.html">Log In</a>
+          <a class="btn btn-danger rounded-pill my-2" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+
+  <!-- Hero Section -->
+  <section class="hero bg-dark text-white py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Left Content -->
+        <div class="col-12 col-md-6 text-md-start text-center mb-4 mb-md-0">
+          <h5 class="fw-bold text-uppercase">Discover Today</h5>
+          <h1 class="display-4 fw-bold">A Digital Studio</h1>
+          <h1 class="display-4 fw-bold">Designing Captivating</h1>
+          <h1 class="display-4 fw-bold">Experiences</h1>
+          <p class="lead mt-3">
+            A premier web design company specializing in creating visually stunning and highly engaging online experiences.
+          </p>
+          <div class="mt-4">
+            <a href="https://youtu.be/FJDVKeh7RJI?si=JYdNJgq1nN_B-AtM" class="btn btn-outline-light btn-lg">
+              <i class="bi bi-camera-video"></i> Watch The Video
+            </a>
+          </div>
+        </div>
+  
+        <!-- Right Content: Image -->
+        <div class="col-12 col-md-6 text-center">
+          <img src="./asset/images/nav_image-removebg-preview.png" alt="Digital Studio" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Registration -->
+  <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content fb-modal">
+        <div class="modal-header">
+          <h5 class="modal-title fb-title" id="registerModalLabel">Sign Up</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Registration Form -->
+          <form method="POST" action="/user/register" id="registerForm">
+            <div class="mb-3">
+              <input type="text" class="form-control fb-input" id="fullName" name="fullName" placeholder="Full Name" required>
+            </div>
+            <div class="mb-3">
+              <input type="text" class="form-control fb-input" id="username" name="username" placeholder="Username" required>
+            </div>
+            <div class="mb-3">
+              <input type="email" class="form-control fb-input" id="email" name="email" placeholder="Email address" required>
+            </div>
+            <div class="mb-3">
+              <input type="password" class="form-control fb-input" id="password" name="password" placeholder="Password" required>
+            </div>
+            <div class="mb-3">
+              <input type="text" class="form-control fb-input" id="phoneNumber" name="phoneNumber" placeholder="Phone Number">
+            </div>
+            <div class="mb-3">
+              <input type="date" class="form-control fb-input" id="dateOfBirth" name="dateOfBirth">
+            </div>
+            <div class="mb-3">
+              <select class="form-select fb-input" id="gender" name="gender" required>
+                <option value="" disabled selected>Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <button type="submit" class="btn fb-btn w-100">Sign Up</button>
+          </form>
+          <div id="responseMessage" class="mt-3 text-center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+
+ <section id="about-us" class="container py-5">
+  <div class="row align-items-center">
+    <!-- Left Column -->
+    <div class="col-12 col-md-5 mb-4 mb-md-0">
+      <div class="mb-3 d-flex align-items-center gap-2">
+        <h6 class="mb-0"><i class="bi bi-chat-left-dots-fill titleicon"></i></h6>
+        <span class="badge py-2 px-3">
+          <h6 class="mb-0">About-Us</h6>
+        </span>
+      </div>
+
+      <h2 class="fw-bold fs-4 fs-md-2">Amazing Platform</h2>
+      <p class="text-muted">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quia nihil expedita modi ab consequuntur temporibus consectetur numquam.
+      </p>
+
+      <div class="d-flex mb-3 flex-wrap">
+        <div class="me-4 text-center mb-3 mb-md-0">
+          <h4 class="fw-bold">5+</h4>
+          <p class="mb-0 text-muted">Years</p>
+        </div>
+        <div class="me-4 text-center mb-3 mb-md-0">
+          <h4 class="fw-bold">70+</h4>
+          <p class="mb-0 text-muted">Clients</p>
+        </div>
+        <div class="me-4 text-center mb-3 mb-md-0">
+          <h4 class="fw-bold">150+</h4>
+          <p class="mb-0 text-muted">Designs</p>
+        </div>
+        <div class="text-center">
+          <h4 class="fw-bold">18+</h4>
+          <p class="mb-0 text-muted">Teams</p>
+        </div>
+      </div>
+
+      <div class="d-flex align-items-center flex-wrap">
+        <img 
+          src="./asset/images/menlog.jpg" 
+          alt="User Image" 
+          class="rounded-circle me-3 img-fluid" 
+          style="width: 80px; height: 80px; object-fit: cover;">
+        <div>
+          <h6 class="mb-0">Kamalesh</h6>
+          <p class="mb-0 text-muted">Data Analyst @Skywave</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column -->
+    <div class="col-12 col-md-7">
+      <div class="row g-3">
+        <div class="col-12 col-md-6">
+          <div class="info-box bg-light rounded p-3 shadow-sm">
+            <h6><i class="bi bi-browser-safari"></i> Strategy Innovations</h6>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum esse temporibus adipisci ad voluptates.
+            </p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="info-box bg-light rounded p-3 shadow-sm">
+            <h6><i class="bi bi-arrow-repeat"></i> Personalized Solutions</h6>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum esse temporibus adipisci ad voluptates.
+            </p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="info-box bg-light rounded p-3 shadow-sm">
+            <h6><i class="bi bi-display"></i> Digital Design</h6>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum esse temporibus adipisci ad voluptates.
+            </p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="info-box bg-light rounded p-3 shadow-sm">
+            <h6><i class="bi bi-file-earmark-text"></i> Subscription</h6>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum esse temporibus adipisci ad voluptates.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-4 text-center text-md-end">
+        <button class="btn Aboutbtn">Show More</button>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+  <!-- Creative Us -->
+   <section id="creative-Us" class="container py-5">
+  <div class="row align-items-center">
+    <!-- Left Column -->
+    <div class="col-12 col-md-5 mb-4 mb-md-0">
+      <img src="./asset/images/create-removebg-preview.png" alt="Digital Studio" class="img-fluid rounded">
+    </div>
+
+    <!-- Right Column -->
+    <div class="col-12 col-md-6">
+
+     <div class="mb-3 d-flex align-items-center  gap-2">
+        <h6 class="mb-0"> <i class="bi bi-cpu-fill titleicon"></i></h6>
+        ...
+        <span class="badge py-2 px-3">
+          <h6 class="mb-0">Creative-Us</h6>
+        </span>
+      </div>
+
+      
+      <h2 class="fw-bold fs-4 fs-md-2">Unleashing Your Imagination</h2>
+      <p class="text-muted">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est dolore accusantium neque fuga modi facilis.
+      </p>
+
+<div class="metrics-container mb-4">
+  <div class="metric-item">
+    <h4 class="fw-bold">20+</h4>
+    <p class="text-muted">Working Task</p>
+  </div>
+  <div class="metric-item">
+    <h4 class="fw-bold">70+</h4>
+    <p class="text-muted">Country Reached</p>
+  </div>
+  <div class="metric-item">
+    <h4 class="fw-bold">4.5</h4>
+    <p class="text-muted">Best Rating</p>
+  </div>
+</div>
+
+      <div class=" mb-4">
+        <p class="mb-0 text-muted">
+          <span style="color: red;">Comments:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore exercitationem molestias.
+        </p>
+      </div>
+
+      <div class="d-flex text-center text-md-end  gap-3 flex-wrap">
+        <button class=" creative">About Me</button>
+        <button class="contact_btn">Contact Me</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section id="feature" class="product-features py-5">
+  <div class="container">
+
+    <div class="mb-3 d-flex align-items-center justify-content-center gap-2">
+      <h5 class="mb-0"><i class="bi bi-key-fill titleicon"></i></h5>
+      <span class="badge py-2 px-3">
+        <h4 class="mb-0">Features</h4>
+      </span>
+    </div>
+
+    <div class="text-center mb-4">
+      <h2 class="fw-bold text-dark">Product Key Features</h2>
+    </div>
+
+    <!-- Row for Columns -->
+    <div class="row text-center align-items-stretch">
+
+      <!-- Column 1: High Performance -->
+      <div class="col-12 col-md-4 mb-custom  d-flex flex-column ">
+        <h3 class="feature-title mb-3 text-end">
+          <i class="bi bi-speedometer2 titleicon"></i> High Performance
+        </h3>
+        <ul class="list-unstyled flex-grow-1 product">
+          <li class="mb-3">
+            <strong class="fl">Exceptional Speed</strong><br>
+            <span class="text-end">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus unde earum voluptates.</span>
+          </li><br>
+          <li class="mb-3">
+            <strong class="fl">Optimized Efficiency</strong><br>
+            <span class="text-end">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus unde earum voluptates.</span>
+          </li><br>
+          <li>
+            <strong class="fl">Reliable Operation</strong><br>
+            <span class="text-end">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus unde earum voluptates.</span>
+          </li><br>
+        </ul>
+      </div>
+
+      <!-- Column 2: Image -->
+      <div class="col-12 col-md-4 mb-4">
+        <div class="text-center">
+          <img
+            src="./asset/images/feature.jpeg"
+            alt="Mobile Features"
+            class="img-fluid mb-4 product-img"
+          />
+        </div>
+      </div>
+
+      <!-- Column 3: Customizable Options -->
+      <div class="col-12 col-md-4 mb-4 d-flex flex-column f1">
+        <h3 class="feature-title mb-3 product_right_img">
+          <i class="bi bi-sliders titleicon"></i> Customizable Options
+        </h3>
+        <ul class="list-unstyled flex-grow-1 product_right">
+          <li class="mb-3">
+            <strong class="fr">Advanced Personalization</strong><br>
+            <span class="text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus unde earum voluptates.</span>
+          </li><br>
+          <li class="mb-3">
+            <strong class="fr">Adaptable Functionality</strong><br>
+            <span class="text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus unde earum voluptates.</span>
+          </li><br>
+          <li>
+            <strong class="fr">User-Specific Profiles</strong><br>
+            <span class="text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus unde earum voluptates.</span>
+          </li><br>
+        </ul>
+      </div>
+
+    </div>
+    
+    <!-- View All Features Button -->
+    <div class="text-center mt-custom">
+      <a href="#" class="btn btn-danger fb px-4 py-2">View All Features</a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Additional Features Section -->
+<section class="additional-features py-5 bg-light">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Left Column  -->
+      <div class="col-12 col-md-6 mb-4 mb-md-0">
+        <img
+          src="./asset/images/future1.jpg"
+          alt="Desktop Features"
+          class="img-fluid"
+        />
+      </div>
+
+      <!-- Right Column -->
+      <div class="col-12 col-md-6">
+        <h3 class="mb-3">The Best Features in Skywave That Make You Happy</h3>
+        <p class="mb-4">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos perspiciatis culpa, necessitatibus, alias natus nostrum similique vitae voluptatem in esse temporibus exercitationem quibusdam.
+        </p>
+        <ul class="list-unstyled">
+          <li class="mb-2">
+            <i class="bi bi-check-circle text-success"></i> Exceptional Speed
+          </li>
+          <li class="mb-2">
+            <i class="bi bi-check-circle text-success"></i> Ongoing Enhancements
+          </li>
+          <li class="mb-2">
+            <i class="bi bi-check-circle text-success"></i> Seamless Integration
+          </li>
+          <li class="mb-2">
+            <i class="bi bi-check-circle text-success"></i> Security Features
+          </li>
+          <li class="mb-2">
+            <i class="bi bi-check-circle text-success"></i> Regular Updates
+          </li>
+        </ul>
+        <a href="#" class="btn btn-link af p-0">View All →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Business -->
+  <section id="business" class="services py-5">
+    <div class="container">
+
+      <div class="mb-3 d-flex align-items-center justify-content-center gap-2">
+        <h6 class="mb-0"><i class="bi bi-bicycle titleicon"></i></h6>
+        ...
+        <span class="badge py-2 px-3">
+          <h6 class="mb-0">Our-Service</h6>
+        </span>
+      </div>
+      <!-- Section Heading -->
+      <div class="text-center mb-4">
+        <h2 class="fw-bold ">How To Better Into Business</h2>
+        <p class="text-muted ">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima labore porro facilis.
+        </p>
+      </div>
+  
+      <!-- Cards 1 -->
+      <div class="row g-4">
+        <!-- Card 1 -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="service-card text-center p-4 h-100">
+            <i class="bi bi-diagram-3 fs-1 text-warning mb-3"></i>
+            <h5 class="fw-bold buss">Project Management</h5>
+            <p class="text-muted buss">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima labore porro facilis.
+            </p>
+            <h1 class="text-start"><span class="fw-bold buss">30 Options Available</span></h1>
+          </div>
+        </div>
+  
+        <!-- Card 2 -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="service-card text-center p-4 h-100">
+            <i class="bi bi-phone fs-1 text-warning mb-3"></i>
+            <h5 class="fw-bold buss">Web & Mobile Development</h5>
+            <p class="text-muted buss">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima labore porro facilis.
+            </p>
+            <h1 class="text-start"><span class="fw-bold buss">40 Options Available</span></h1>
+          </div>
+        </div>
+  
+        <!-- Card 3 -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="service-card text-center p-4 h-100">
+            <i class="bi bi-headset fs-1 text-warning mb-3"></i>
+            <h5 class="fw-bold buss">Customer Support</h5>
+            <p class="text-muted buss">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima labore porro facilis.
+            </p>
+            <h1 class="text-start"><span class="fw-bold buss">4 Options Available</span></h1>
+          </div>
+        </div>
+  
+        <!-- Card 4 -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="service-card text-center p-4 h-100">
+            <i class="bi bi-person-badge fs-1 text-warning mb-3"></i>
+            <h5 class="fw-bold buss">Human Resource</h5>
+            <p class="text-muted buss">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima labore porro facilis.
+            </p>
+            <h1 class="text-start"><span class="fw-bold buss">22 Options Available</span></h1>
+          </div>
+        </div>
+  
+        <!-- Card 5 -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="service-card text-center p-4 h-100">
+            <i class="bi bi-brush fs-1 text-warning mb-3"></i>
+            <h5 class="fw-bold buss">Design & Creative</h5>
+            <p class="text-muted buss">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima labore porro facilis.
+            </p>
+            <h1 class="text-start"><span class="fw-bold buss">19 Options Available</span></h1>
+          </div>
+        </div>
+  
+        <!-- Card 6 -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="service-card text-center p-4 h-100">
+            <i class="bi bi-megaphone fs-1 text-warning mb-3"></i>
+            <h5 class="fw-bold buss">Communication</h5>
+            <p class="text-muted buss">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima labore porro facilis.
+            </p>
+            <h1 class="text-start"><span class="fw-bold buss">20 Options Available</span></h1>
+          </div>
+        </div>
+  
+        <!-- Card 7 -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="service-card text-center p-4 h-100">
+            <i class="bi bi-graph-up-arrow fs-1 text-warning mb-3"></i>
+            <h5 class="fw-bold buss">Business Development</h5>
+            <p class="text-muted buss">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima labore porro facilis.
+            </p>
+           <h1 class="text-start"><span class="fw-bold">22 Options Available</span></h1> 
+          </div>
+        </div>
+  
+        <!-- Show More Card -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="service-card text-center p-4 h-100 bg-warning text-white">
+            <i class="bi bi-plus-circle fs-1 mb-3"></i>
+            <h5 class="fw-bold buss">Show More Card</h5>
+            <h1 class="text-start"><span class="fw-bold buss">+4 More Options</span></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+<!-- Free Trial -->
+
+<section class="trial  text-white text-center py-5">
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-lg-8 col-md-10 col-sm-12">
+        <h3 class=" fw-bold">Join Million Of Creative People with Skywave</h3><br>
+        <p class="lead" style="font-size: 15px;">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias eos, ipsum veritatis at commodi quaerat harum itaque culpa, laudantium a maxime odit voluptatum voluptatibus eaque provident, quis pariatur ex dolores!
+        </p>
+        <a href="" class="btn btn-outline-light btn-lg bg-light  text-warning  mt-3">Free Trial</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+ 
+<!-- Testimonial -->
+<section class="container py-5">
+  <div class="row align-items-center">
+    <!-- Left Column -->
+    <div class="col-md-5 mb-4 mb-md-0">
+
+      <div class="mb-3 d-flex align-items-center gap-2">
+        <h6 class="mb-0"><i class="bi bi-calendar2-event titleicon"></i></h6>
+        ...
+        <span class="badge py-2 px-3">
+          <h6 class="mb-0">Testimonial</h6>
+        </span>
+      </div>
+   
+      <h2 class="fw-bold fs-4 fs-md-2">From Our Community</h2>
+      <p class="text-muted">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque sapiente atque.
+      </p>
+      <div class="d-flex align-items-center flex-wrap mb-3">
+        <img 
+          src="./asset/images/men1logo.jpg" 
+          alt="User Image" 
+          class="rounded-circle me-3 img-fluid" 
+          style="width: 80px; height: 80px; object-fit: cover;">
+        <img 
+          src="./asset/images/men2logo.jpg" 
+          alt="User Image" 
+          class="rounded-circle me-3 img-fluid" 
+          style="width: 80px; height: 80px; object-fit: cover;">
+        <img 
+          src="./asset/images/menlog.jpg" 
+          alt="User Image" 
+          class="rounded-circle me-3 img-fluid" 
+          style="width: 80px; height: 80px; object-fit: cover;">
+      </div>
+      <div class="d-flex mb-3">
+        <div class="text-center">
+          <h4 class="fw-bold">4.5 <span style="font-size: medium;">Best Review</span></h4>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column -->
+    <div class="col-md-7  mx-auto">
+      <div class="card border-orange  shadow-sm">
+        <div class="card-body bg-light border-orange ">
+          <div class="p-3 ">
+            <h5 class="text-success">Shopify</h5>
+            <p class="text-muted">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae earum
+              laudantium aperiam adipisci qui sed numquam natus odit nihil maiores,
+              optio obcaecati omnis, quaerat porro voluptatum amet necessitatibus
+              culpa? Nam?
+            </p>
+          </div>
+          <div class="d-flex align-items-center gap-3">
+            <img
+              src="./asset/images/menlog.jpg"
+              alt="User Image"
+              class="rounded-circle img-fluid"
+              style="width: 80px; height: 80px; object-fit: cover;"
+            />
+            <div>
+              <h4 class="fw-bold mb-0">Ajithkumar</h4>
+              <h6 class="fw-bold text-muted">Project Manager At Shopify</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+
+<!-- team -->
+<div class="container-fluid" id="teams" >
+  
+  <div class="container text-center">
+    
+    <div class="mb-3 d-flex align-items-center justify-content-center gap-2">
+      <h4 class="mb-0"><i class="bi bi-person-lines-fill titleicon"></i></h4>
+      ...
+      <span class="badge py-2 px-3">
+        <h4 class="mb-0">Team</h4>
+      </span>
+    </div>
+
+    
+    <h1 class="my-4">Our Team</h1>
+    <p class="text-center mx-auto" style="max-width: 900px;">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias eos, ipsum veritatis at commodi quaerat harum itaque culpa, laudantium a maxime odit voluptatum voluptatibus eaque provident, quis pariatur ex dolores!
+    </p>
+  </div><br>
+  
+  <div class="row">
+      <!-- Team Member 1 -->
+    <div class="col-md-4 col-sm-6 mb-4">
+      <div class="card">
+        <div class="d-flex align-items-center">
+          <!-- Image on the left -->
+          <img src="./asset/images/men2logo.jpg" alt="Hari" class="card-img-top card-img mr-3">
+          <!-- Social icons on the right -->
+          <div class="social-icons ml-auto">
+            <a href="#"><i class="bi bi-twitter"></i></a>
+            <a href="#"><i class="bi bi-youtube"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Hari</h5>
+          <p class="card-text">Founder</p>
+          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam beatae delectus ipsam voluptas.</p>
+          <a href="#" class="btn btn-link af p-0">View More →</a>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+       <!-- Team Member 2 -->
+    <div class="col-md-4 col-sm-6 mb-4">
+      <div class="card">
+        <div class="d-flex align-items-center">
+          <!-- Image on the left -->
+          <img src="./asset/images/menlog.jpg" alt="Hari" class="card-img-top card-img mr-3">
+          <!-- Social icons on the right -->
+          <div class="social-icons ml-auto">
+            <a href="#"><i class="bi bi-twitter"></i></a>
+            <a href="#"><i class="bi bi-youtube"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Hari</h5>
+          <p class="card-text">Founder</p>
+          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam beatae delectus ipsam voluptas.</p>
+          <a href="#" class="btn btn-link af p-0">View More →</a>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+     <!-- Team Member 3 -->
+     <div class="col-md-4 col-sm-6 mb-4">
+      <div class="card">
+        <div class="d-flex align-items-center">
+          <!-- Image on the left -->
+          <img src="./asset/images/men1logo.jpg" alt="Hari" class="card-img-top card-img mr-3">
+          <!-- Social icons on the right -->
+          <div class="social-icons ml-auto">
+            <a href="#"><i class="bi bi-twitter"></i></a>
+            <a href="#"><i class="bi bi-youtube"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Hari</h5>
+          <p class="card-text">Founder</p>
+          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam beatae delectus ipsam voluptas.</p>
+          <a href="#" class="btn btn-link af p-0">View More →</a>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+     <!-- Team Member 4 -->
+     <div class="col-md-4 col-sm-6 mb-4">
+      <div class="card">
+        <div class="d-flex align-items-center">
+          <!-- Image on the left -->
+          <img src="./asset/images/menlog.jpg" alt="Hari" class="card-img-top card-img mr-3">
+          <!-- Social icons on the right -->
+          <div class="social-icons ml-auto">
+            <a href="#"><i class="bi bi-twitter"></i></a>
+            <a href="#"><i class="bi bi-youtube"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Hari</h5>
+          <p class="card-text">Founder</p>
+          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam beatae delectus ipsam voluptas.</p>
+          <a href="#" class="btn btn-link af p-0">View More →</a>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Team Member 5 -->
+    <div class="col-md-4 col-sm-6 mb-4">
+      <div class="card">
+        <div class="d-flex align-items-center">
+          <!-- Image on the left -->
+          <img src="./asset/images/men2logo.jpg" alt="Hari" class="card-img-top card-img mr-3">
+          <!-- Social icons on the right -->
+          <div class="social-icons ml-auto">
+            <a href="#"><i class="bi bi-twitter"></i></a>
+            <a href="#"><i class="bi bi-youtube"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Hari</h5>
+          <p class="card-text">Founder</p>
+          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam beatae delectus ipsam voluptas.</p>
+          <a href="#" class="btn btn-link af p-0">View More →</a>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+     <!-- Team Member 6 -->
+     <div class="col-md-4 col-sm-6 mb-4">
+      <div class="card">
+        <div class="d-flex align-items-center">
+          <!-- Image on the left -->
+          <img src="./asset/images/men1logo.jpg" alt="Hari" class="card-img-top card-img mr-3">
+          <!-- Social icons on the right -->
+          <div class="social-icons ml-auto">
+            <a href="#"><i class="bi bi-twitter"></i></a>
+            <a href="#"><i class="bi bi-youtube"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Hari</h5>
+          <p class="card-text">Founder</p>
+          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam beatae delectus ipsam voluptas.</p>
+          <a href="#" class="btn btn-link af p-0">View More →</a>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+<!-- Pricing Table -->
+ <section id="pricing" class="pricing py-5">
+  <div class="container">
+    <!-- Pricing Header -->
+    <div class="mb-3 d-flex align-items-center justify-content-center gap-2">
+      <h4 class="mb-0"> <i class="bi bi-qr-code-scan titleicon"></i></h4>
+      ...
+      <span class="badge py-2 px-3">
+        <h4 class="mb-0">Pricing</h4>
+      </span>
+    </div>
+  
+    <div class="pricing-header text-center mb-5">
+      <h2>Save Your Time And Get Your Best Price Of Our <br>Services</h2><br>
+      <p class="text-center mx-auto" style="max-width: 900px;">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias eos, ipsum veritatis at commodi quaerat harum itaque culpa, laudantium a maxime odit voluptatum voluptatibus eaque provident, quis pariatur ex dolores!
+      </p>
+  <br>
+    </div>
+
+    <!-- Pricing Cards Row -->
+    <div class="row pricing">
+      <!-- Starter Plan -->
+      <div class="col-12 col-md-4 mb-4">
+        <div class="card p-4 top-pick">
+          <h4 class=" text-highlight">Starter</h4><br>
+          <h2 class="">
+            $12 <span class="discount-badge">20% OFF</span>
+          </h2><br>
+          <p class="text-muted ">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, labore deleniti.
+          </p><br>
+          <hr>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li> <i class="bi bi-check-circle text-success"></i> Account Aggregation</li><br>
+            <li> <i class="bi bi-check-circle text-success"></i> Expense Tracking</li><br>
+            <li> <i class="bi bi-check-circle text-success"></i> Budgeting Tools</li><br>
+            <li> <i class="bi bi-check-circle text-success"></i> Transaction Insights</li><br>
+            <li> <i class="bi bi-check-circle text-success"></i> Basic Security</li><br>
+          </ul><br>
+          <button class="btn get-started-btn w-100">Get Started</button><br>
+        </div>
+      </div>
+
+      
+      <!-- Team Plan -->
+      <div class="col-12 col-md-4 mb-4">
+        <div class="card p-4 top-pick">
+          <h4 class=" text-highlight">Team</h4><br>
+          <h2 class="">
+            $24 <span class="discount-badge">40% OFF</span>
+          </h2><br>
+          <p class="text-muted ">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, labore deleniti.
+          </p><br>
+          <hr>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li> <i class="bi bi-check-circle text-success"></i> Account Aggregation</li><br>
+            <li> <i class="bi bi-check-circle text-success"></i> Expense Tracking</li><br>
+            <li> <i class="bi bi-check-circle text-success"></i> Budgeting Tools</li><br>
+            <li> <i class="bi bi-check-circle text-success"></i> Transaction Insights</li><br>
+            <li> <i class="bi bi-check-circle text-success"></i> Basic Security</li><br>
+          </ul><br>
+          <button class="btn get-started-btn w-100">Get Started</button><br>
+        </div>
+      </div>
+
+      <!-- Business Plan -->
+      <div class="col-12 col-md-4 mb-4">
+        <div class="card p-4">
+          <h4 class="text-highlight">Business</h4><br>
+          <h2 class="">
+            $36 <span class="discount-badge">60% OFF</span>
+          </h2><br>
+          <p class="text-muted">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, labore deleniti.
+          </p><br>
+          <hr>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li> <i class="bi bi-check-circle text-success"></i> Account Aggregation</li><br>
+            <li> <i class="bi bi-check-circle text-success"></i> Expense Tracking</li><br>
+            <li> <i class="bi bi-check-circle text-success"></i> Budgeting Tools</li><br>
+            <li> <i class="bi bi-check-circle text-success"></i> Transaction Insights</li><br>
+            <li> <i class="bi bi-check-circle text-success"></i> Basic Security</li><br>
+          </ul><br>
+          <button class="btn get-started-btn w-100">Get Started</button><br>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Contact -->
+<section id="contact" class="contact py-5 w-100">
+  <div class="container">
+    <div class="mb-3 d-flex align-items-center justify-content-center gap-2">
+      <h4 class="mb-0"><i class="bi bi-envelope-paper titleicon"></i></h4>
+      ...
+      <span class="badge py-2 px-3">
+        <h4 class="mb-0">Contact</h4>
+      </span>
+    </div>
+    <!-- Header -->
+    <div class="contact-header text-center mb-5">
+      <h2>Contact Us</h2>
+    
+      <p class="text-center mx-auto" style="max-width: 900px;">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias eos, ipsum veritatis at commodi quaerat harum itaque culpa, laudantium a maxime odit voluptatum voluptatibus eaque provident, quis pariatur ex dolores!
+      </p>
+  
+    </div>
+
+    <div class="row align-items-stretch">
+      <!-- Contact Cards -->
+      <div class="col-12 col-md-4 mb-4">
+        <div class="contact-card p-4 border">
+          <h5>Call Us Directly At</h5>
+          <p class="">1234567890</p>
+          <button class="contact-btn btn w-100">Contact Us</button>
+        </div>
+        <div class="contact-card p-4 border mt-3">
+          <h5>Chat With Our Team</h5>
+          <p class="">abc@gmail.com</p>
+          <button class="contact-btn btn w-100">Contact Us</button>
+        </div>
+      </div>
+<!-- Contact Form -->
+<div class="col-12 col-md-8 mb-4">
+  <div class="form-container h-100">
+    <form>
+      <div class="row mb-3">
+        <div class="col-12 col-md-6">
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="Your Name"
+          />
+        </div>
+        <div class="col-12 col-md-6">
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Your Email"
+          />
+        </div>
+      </div>
+      <div class="mb-3">
+        <input
+          type="text"
+          class="form-control"
+          id="subject"
+          placeholder="Subject"
+        />
+      </div>
+      <div class="mb-3">
+        <textarea
+          class="form-control"
+          id="message"
+          rows="5"
+          placeholder="Your Message"
+        ></textarea>
+      </div>
+      <button type="submit" class="btn send-btn ">Send Message</button>
+    </form>
+  </div>
+</div>
+
+
+    </div>
+  </div>
+</section>
+
+ <!-- Footer -->
+ <footer>
+  <!-- Outer container-fluid for full width -->
+  <div class="footer container-fluid py-5 px-3 px-md-5">
+    <div class="row">
+      <div class="col-12 col-md-3 mb-4">
+        <h4 class="footer-logo">
+          <a class="navbar-brand fw-bold" href="#">
+            <img src="./asset/images/logo.jpg" alt="Skywave" class="logo mb-3" style="width: 40px;"> Skywave
+          </a>
+        </h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <button class="btn-subscribe btn w-100 mt-3">Subscribe</button>
+      </div>
+
+      <div class="col-6 col-md-2 mb-4">
+        <h5 class="mb-3">Solution</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="d-block mb-2">Enterprise</a></li>
+          <li><a href="#" class="d-block mb-2">By Workflow</a></li>
+          <li><a href="#" class="d-block mb-2">By Team</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-2 mb-4">
+        <h5 class="mb-3">Company</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="d-block mb-2">About Us</a></li>
+          <li><a href="#" class="d-block mb-2">News & Press</a></li>
+          <li><a href="#" class="d-block mb-2">Our Customer</a></li>
+          <li><a href="#" class="d-block mb-2">Leadership</a></li>
+          <li><a href="#" class="d-block mb-2">Careers</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-2 mb-4">
+        <h5 class="mb-3">Resources</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="d-block mb-2">Blog</a></li>
+          <li><a href="#" class="d-block mb-2">Webinar & Events</a></li>
+          <li><a href="#" class="d-block mb-2">Podcast</a></li>
+          <li><a href="#" class="d-block mb-2">E-book & Guides</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-3 mb-4">
+        <h5 class="mb-3">Contact Us</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="d-block mb-2">Contact Sales</a></li>
+          <li><a href="#" class="d-block mb-2">Become Partner</a></li>
+          <li><a href="#" class="d-block mb-2">Affiliate Program</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lower Footer -->
+  <div class="lower-footer container-fluid py-3 px-3 px-md-5 bg-dark text-white">
+    <div class="row align-items-center">
+      <div class="col-12 col-md-6 text-center text-md-start mb-3 mb-md-0">
+        <p class="mb-0">2024 © Skywave – Design crafted by <span style="color: #f97316;">Hari</span></p>
+      </div>
+      <div class="col-12 col-md-6 text-center text-md-end">
+        <div class="social-icons mb-2">
+          <a href="#" class="me-3"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="me-3"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="me-3"><i class="bi bi-youtube"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+        </div>
+        <div>
+          <a href="#" class="text-white me-2">Terms Of Use</a> | 
+          <a href="#" class="text-white">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- register -->
+  <script>
+    document.querySelector('form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const formData = {
+        fullName: document.getElementById('fullName').value,
+        username: document.getElementById('username').value,
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value,
+        phoneNumber: document.getElementById('phoneNumber').value,
+        dateOfBirth: document.getElementById('dateOfBirth').value,
+        gender: document.getElementById('gender').value,
+      };
+
+      const responseMessage = document.getElementById('responseMessage');
+   
+      responseMessage.innerHTML = '';
+
+      try {
+  const response = await axios.post('http://localhost:3000/user/register', formData);
+  console.log(response.data); 
+  responseMessage.innerHTML = `<div class="alert alert-success">User registered successfully</div>`;
+} catch (error) {
+  console.error(error);
+  responseMessage.innerHTML = `<div class="alert alert-danger">An error occurred while registering. Please try again.</div>`;
+}
+
+    });
+  </script>
+
+
+    
+  
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
